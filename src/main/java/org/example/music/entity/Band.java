@@ -28,4 +28,44 @@ public class Band {
     private List<String> albums;
 
     // getters & setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public Year getFormedIn() {
+        return formedIn;
+    }
+
+    public void setFormedIn(Year formedIn) {
+        this.formedIn = formedIn;
+    }
+
+    public List<String> getAlbums() {
+        return albums;
+    }
+
+    public void setAlbums(List<String> albums) {
+        this.albums = albums;
+    }
+
 }
