@@ -22,6 +22,10 @@ public class LyricsClient {
         return response != null ? response.getLyrics() : "No lyrics found";
     }
 
-    public static record LyricsResponse(String lyrics) { }
+    public static record LyricsResponse(String lyrics) {
+        public String getLyrics() {
+            return lyrics;
+        }
+    }
 
 }
