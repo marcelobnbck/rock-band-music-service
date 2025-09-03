@@ -6,26 +6,18 @@ import org.springframework.web.client.RestTemplate;
 
 @Component
 public class LyricsClient {
+    @Value("${lyrics.api.url}")
+    private String apiUrl;
 
     private final RestTemplate restTemplate;
-    private final String apiUrl;
 
-    public LyricsClient(RestTemplate restTemplate,
-                        @Value("${lyrics.api.url}") String apiUrl) {
+    public LyricsClient(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
-        this.apiUrl = apiUrl;
     }
 
-    public String fetchLyrics(String artist, String title) {
-        String url = String.format("%s/%s/%s", apiUrl, artist, title);
-        LyricsResponse response = restTemplate.getForObject(url, LyricsResponse.class);
-        return response != null ? response.getLyrics() : "No lyrics found";
+    public String fetchLyrics(String bandName, String albumTitle) {
+        // Implement lyrics fetching logic
+        return restTemplate.getForObject(apiUrl + "/lyrics?band={band}&album={album}",
+                String.class, bandName, albumTitle);
     }
-
-    public static record LyricsResponse(String lyrics) {
-        public String getLyrics() {
-            return lyrics;
-        }
-    }
-
 }
