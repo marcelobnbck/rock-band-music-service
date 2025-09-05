@@ -11,7 +11,7 @@ class AlbumTest {
         album.setId(1L);
         album.setTitle("Test Album");
 
-        org.example.music.entity.Band band = new Band();
+        Band band = new Band();
         album.setBand(band);
 
         assertEquals(1L, album.getId());
